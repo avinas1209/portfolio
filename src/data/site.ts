@@ -1,3 +1,5 @@
+import { asset } from "@/lib/paths";
+
 export const site = {
   name: "Avinash Kondaveti",
   title: "Senior Backend Engineer",
@@ -8,7 +10,7 @@ export const site = {
   phone: "+91 89198 10046",
   linkedin: "https://linkedin.com/in/avinash-kondaveti-bb453b231",
   github: "https://github.com/avinas1209",
-  resume: "/Avinash_Kondaveti_Resume.pdf",
+  resume: asset("/Avinash_Kondaveti_Resume.pdf"),
   yearsOfExperience: "4.6",
   intro: [
     "I build scalable microservices and event-driven systems in Go — the kind that stay calm at 10x traffic.",

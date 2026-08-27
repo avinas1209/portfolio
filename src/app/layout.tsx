@@ -2,6 +2,7 @@ import type { Metadata, Viewport } from "next";
 import { Orbitron, Inter, JetBrains_Mono } from "next/font/google";
 import "./globals.css";
 import { site } from "@/data/site";
+import { asset, siteUrl } from "@/lib/paths";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import AuraBackground from "@/components/AuraBackground";
@@ -26,7 +27,7 @@ const jetbrains = JetBrains_Mono({
 });
 
 export const metadata: Metadata = {
-  metadataBase: new URL("https://avinash-kondaveti.vercel.app"),
+  metadataBase: new URL(siteUrl),
   title: {
     default: `${site.name} — ${site.title} | ${site.specialty}`,
     template: `%s — ${site.name}`,
@@ -55,7 +56,7 @@ export const metadata: Metadata = {
     description: site.summary,
   },
   icons: {
-    icon: "/dragon-ball.svg",
+    icon: asset("/dragon-ball.svg"),
   },
 };
 
