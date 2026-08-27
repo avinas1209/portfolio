@@ -1,0 +1,277 @@
+@import "tailwindcss";
+
+@theme {
+  /* --- Dragon Ball palette --------------------------------------------- */
+  --color-void: #05060a;
+  --color-void-2: #0a0c14;
+  --color-panel: #0e111b;
+
+  --color-saiyan: #f2701c; /* gi orange */
+  --color-saiyan-deep: #c4470a;
+  --color-ki: #ffc72c; /* super saiyan gold */
+  --color-ki-soft: #ffe08a;
+  --color-gi: #2b7fff; /* undershirt blue */
+  --color-kame: #35e0f5; /* kamehameha cyan */
+  --color-namek: #35d07f;
+  --color-royal: #a970ff;
+  --color-blood: #ff4d4d;
+
+  --color-ash: #9aa3b2;
+  --color-ash-dim: #6b7280;
+
+  /* --- Type ------------------------------------------------------------- */
+  --font-display: var(--font-orbitron), ui-sans-serif, system-ui, sans-serif;
+  --font-sans: var(--font-inter), ui-sans-serif, system-ui, sans-serif;
+  --font-mono: var(--font-mono-jb), ui-monospace, SFMono-Regular, monospace;
+
+  /* --- Motion ------------------------------------------------------------ */
+  --animate-flicker: flicker 3.2s ease-in-out infinite;
+  --animate-float: float 7s ease-in-out infinite;
+  --animate-spin-slow: spin 26s linear infinite;
+  --animate-scan: scan 4s linear infinite;
+  --animate-pulse-ki: pulse-ki 2.4s ease-in-out infinite;
+}
+
+@keyframes flicker {
+  0%,
+  100% {
+    opacity: 0.55;
+    transform: scaleY(1);
+  }
+  50% {
+    opacity: 1;
+    transform: scaleY(1.06);
+  }
+}
+
+@keyframes float {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-14px);
+  }
+}
+
+@keyframes scan {
+  0% {
+    transform: translateY(-100%);
+  }
+  100% {
+    transform: translateY(1000%);
+  }
+}
+
+@keyframes pulse-ki {
+  0%,
+  100% {
+    box-shadow: 0 0 0 0 rgb(242 112 28 / 0.45);
+  }
+  60% {
+    box-shadow: 0 0 0 14px rgb(242 112 28 / 0);
+  }
+}
+
+/* ======================================================================== */
+
+:root {
+  color-scheme: dark;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background-color: var(--color-void);
+  color: #e9edf5;
+  font-family: var(--font-sans);
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+  }
+}
+
+::selection {
+  background: rgb(242 112 28 / 0.35);
+  color: #fff;
+}
+
+::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+}
+::-webkit-scrollbar-track {
+  background: #06070c;
+}
+::-webkit-scrollbar-thumb {
+  background: linear-gradient(180deg, var(--color-saiyan), var(--color-ki));
+  border-radius: 999px;
+}
+
+/* --- Reusable surfaces --------------------------------------------------- */
+
+.ki-panel {
+  position: relative;
+  background:
+    linear-gradient(180deg, rgb(255 255 255 / 0.045), rgb(255 255 255 / 0.015)),
+    rgb(10 12 20 / 0.86);
+  border: 1px solid rgb(242 112 28 / 0.18);
+  border-radius: 1rem;
+}
+
+.ki-panel-hover {
+  transition:
+    border-color 0.3s ease,
+    box-shadow 0.35s ease,
+    transform 0.35s ease;
+}
+
+.ki-panel-hover:hover {
+  border-color: rgb(255 199 44 / 0.55);
+  box-shadow:
+    0 0 0 1px rgb(255 199 44 / 0.12),
+    0 18px 60px -18px rgb(242 112 28 / 0.55);
+}
+
+/* HUD corner brackets, drawn with gradients so there is no extra markup */
+.hud-frame {
+  position: relative;
+}
+
+.hud-frame::before,
+.hud-frame::after {
+  content: "";
+  position: absolute;
+  width: 18px;
+  height: 18px;
+  border-color: rgb(255 199 44 / 0.65);
+  pointer-events: none;
+}
+.hud-frame::before {
+  top: 8px;
+  left: 8px;
+  border-top: 2px solid;
+  border-left: 2px solid;
+}
+.hud-frame::after {
+  bottom: 8px;
+  right: 8px;
+  border-bottom: 2px solid;
+  border-right: 2px solid;
+}
+
+.text-glow {
+  text-shadow:
+    0 0 12px rgb(255 199 44 / 0.55),
+    0 0 42px rgb(242 112 28 / 0.35);
+}
+
+.text-glow-soft {
+  text-shadow: 0 0 18px rgb(53 224 245 / 0.35);
+}
+
+/* Gradient display text used for section titles */
+.saiyan-gradient {
+  background: linear-gradient(
+    100deg,
+    var(--color-ki) 0%,
+    var(--color-saiyan) 45%,
+    var(--color-ki-soft) 100%
+  );
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+/* Scouter-style monospace readout */
+.readout {
+  font-family: var(--font-mono);
+  font-size: 0.7rem;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--color-ki);
+}
+
+/* Thin animated scanline overlay for HUD panels */
+.scanlines {
+  position: relative;
+  overflow: hidden;
+}
+.scanlines::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: repeating-linear-gradient(
+    to bottom,
+    rgb(255 255 255 / 0.035) 0px,
+    rgb(255 255 255 / 0.035) 1px,
+    transparent 1px,
+    transparent 4px
+  );
+  pointer-events: none;
+  mix-blend-mode: overlay;
+}
+
+/* --- Background ki particles (CSS-only, off the main thread) -------------- */
+
+@keyframes ki-twinkle {
+  0%,
+  100% {
+    opacity: 0.12;
+  }
+  50% {
+    opacity: 0.75;
+  }
+}
+
+@keyframes ki-rise {
+  0% {
+    transform: translate3d(0, 0, 0);
+    opacity: 0;
+  }
+  12% {
+    opacity: 0.85;
+  }
+  100% {
+    transform: translate3d(var(--drift), -108vh, 0);
+    opacity: 0;
+  }
+}
+
+.ki-star {
+  position: absolute;
+  border-radius: 9999px;
+  background: #fff;
+  opacity: 0.12;
+  animation: ki-twinkle var(--dur) ease-in-out var(--delay) infinite;
+}
+
+.ki-ember {
+  position: absolute;
+  bottom: -6%;
+  border-radius: 9999px;
+  background: linear-gradient(180deg, rgb(255 224 138 / 0.95), rgb(242 112 28 / 0.15));
+  opacity: 0;
+  will-change: transform, opacity;
+  animation: ki-rise var(--dur) linear var(--delay) infinite;
+}
+
+/* Skip layout/paint for long sections until they are near the viewport.
+   contain-intrinsic-size keeps the scrollbar honest so anchor jumps land. */
+.defer-paint {
+  content-visibility: auto;
+  contain-intrinsic-size: auto 720px;
+}
