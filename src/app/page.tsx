@@ -7,7 +7,7 @@ import { featuredProjects } from "@/data/projects";
 import { site } from "@/data/site";
 
 const STATS = [
-  { value: "4.6+", label: "Years in production Go" },
+  { value: "4.8+", label: "Years in production Go" },
   { value: "30%", label: "Faster API response times" },
   { value: "25%", label: "Higher payment success rate" },
   { value: "4", label: "Engineering teams shipped with" },

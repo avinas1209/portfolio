@@ -9,11 +9,11 @@ import { experiences, education } from "@/data/experience";
 export const metadata: Metadata = {
   title: "Experience",
   description:
-    "4.6 years across Tectoro Consulting, BPS, Nouveau Labs and Cognizant — Golang microservices, payment platforms, cloud security APIs and analytics backends.",
+    "4.8 years across Tectoro Consulting, BPS, Nouveau Labs and Cognizant — Golang microservices, payment platforms, cloud security APIs and analytics backends.",
 };
 
 const HIGHLIGHTS = [
-  { value: "4.6", label: "Years shipping backend systems" },
+  { value: "4.8", label: "Years shipping backend systems" },
   { value: "4", label: "Companies, four different problem spaces" },
   { value: "30%", label: "Best measured latency reduction" },
   { value: "25%", label: "Payment success-rate improvement" },

@@ -10,7 +10,7 @@ import { experiences, education } from "@/data/experience";
 export const metadata: Metadata = {
   title: "About",
   description:
-    "Backend engineer with 4.6 years building Go microservices, event-driven systems and real-time platforms across fintech and cloud security.",
+    "Backend engineer with 4.8 years building Go microservices, event-driven systems and real-time platforms across fintech and cloud security.",
 };
 
 export default function AboutPage() {

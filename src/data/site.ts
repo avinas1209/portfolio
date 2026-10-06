@@ -11,13 +11,13 @@ export const site = {
   linkedin: "https://linkedin.com/in/avinash-kondaveti-bb453b231",
   github: "https://github.com/avinas1209",
   resume: asset("/Avinash_Kondaveti_Resume.pdf"),
-  yearsOfExperience: "4.6",
+  yearsOfExperience: "4.8",
   intro: [
     "I build scalable microservices and event-driven systems in Go — the kind that stay calm at 10x traffic.",
     "Four and a half years across fintech and real-time platforms, training on concurrency, caching and clean system design.",
   ],
   summary:
-    "Backend Engineer with 4.6 years of experience designing and building scalable microservices and distributed systems using Golang, MongoDB, PostgreSQL and event-driven architectures. Expertise in building high-performance REST APIs, implementing asynchronous messaging systems (NATS), and optimizing system performance, scalability, and reliability. Proven track record of delivering production-ready solutions in fintech and real-time platforms with a strong focus on concurrency, caching, and system design.",
+    "Backend Engineer with 4.8 years of experience designing and building scalable microservices and distributed systems using Golang, MongoDB, PostgreSQL and event-driven architectures. Expertise in building high-performance REST APIs, implementing asynchronous messaging systems (NATS), and optimizing system performance, scalability, and reliability. Proven track record of delivering production-ready solutions in fintech and real-time platforms with a strong focus on concurrency, caching, and system design.",
   heroStack: [
     "Go",
     "MongoDB",
